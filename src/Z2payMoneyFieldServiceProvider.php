@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Jpmerlotti\Z2payMoneyField;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -13,14 +13,14 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
+use Jpmerlotti\Z2payMoneyField\Commands\Z2payMoneyFieldCommand;
+use Jpmerlotti\Z2payMoneyField\Testing\TestsZ2payMoneyField;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class Z2payMoneyFieldServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'z2pay-money-field';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'z2pay-money-field';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +36,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('jpmerlotti/z2pay-money-field');
             });
 
         $configFileName = $package->shortName();
@@ -82,18 +82,18 @@ class SkeletonServiceProvider extends PackageServiceProvider
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
+                    $file->getRealPath() => base_path("stubs/z2pay-money-field/{$file->getFilename()}"),
+                ], 'z2pay-money-field-stubs');
             }
         }
 
         // Testing
-        Testable::mixin(new TestsSkeleton());
+        Testable::mixin(new TestsZ2payMoneyField());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'jpmerlotti/z2pay-money-field';
     }
 
     /**
@@ -102,9 +102,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('z2pay-money-field', __DIR__ . '/../resources/dist/components/z2pay-money-field.js'),
+            Css::make('z2pay-money-field-styles', __DIR__ . '/../resources/dist/z2pay-money-field.css'),
+            Js::make('z2pay-money-field-scripts', __DIR__ . '/../resources/dist/z2pay-money-field.js'),
         ];
     }
 
@@ -114,7 +114,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            Z2payMoneyFieldCommand::class,
         ];
     }
 
@@ -148,7 +148,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            'create_z2pay-money-field_table',
         ];
     }
 }

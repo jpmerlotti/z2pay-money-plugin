@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Jpmerlotti\Z2payMoneyField\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class Z2payMoneyFieldCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'z2pay-money-field';
 
     public $description = 'My command';
 
