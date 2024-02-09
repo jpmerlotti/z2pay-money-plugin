@@ -9,12 +9,12 @@ use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
+use Jpmerlotti\Z2payMoneyField\Commands\Z2payMoneyFieldCommand;
+use Jpmerlotti\Z2payMoneyField\Testing\TestsZ2payMoneyField;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Jpmerlotti\Z2payMoneyField\Commands\Z2payMoneyFieldCommand;
-use Jpmerlotti\Z2payMoneyField\Testing\TestsZ2payMoneyField;
 
 class Z2payMoneyFieldServiceProvider extends PackageServiceProvider
 {
@@ -80,7 +80,7 @@ class Z2payMoneyFieldServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/z2pay-money-field/{$file->getFilename()}"),
                 ], 'z2pay-money-field-stubs');
@@ -103,8 +103,8 @@ class Z2payMoneyFieldServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('z2pay-money-field', __DIR__ . '/../resources/dist/components/z2pay-money-field.js'),
-            Css::make('z2pay-money-field-styles', __DIR__ . '/../resources/dist/z2pay-money-field.css'),
-            Js::make('z2pay-money-field-scripts', __DIR__ . '/../resources/dist/z2pay-money-field.js'),
+            Css::make('z2pay-money-field-styles', __DIR__.'/../resources/dist/z2pay-money-field.css'),
+            Js::make('z2pay-money-field-scripts', __DIR__.'/../resources/dist/z2pay-money-field.js'),
         ];
     }
 
