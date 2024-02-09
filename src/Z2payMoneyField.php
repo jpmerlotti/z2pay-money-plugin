@@ -6,8 +6,10 @@ use Filament\Forms\Components\Field;
 
 class Z2payMoneyField extends Field
 {
-    protected static function getFormView(): string
+    protected string $view = 'forms.components.z2pay-money-field';
+
+    protected function setUp(): void
     {
-        return 'forms.components.z2pay-money-field';
+        parent::setUp();
     }
 }
