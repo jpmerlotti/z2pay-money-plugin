@@ -103,8 +103,8 @@ class Z2payMoneyFieldServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('z2pay-money-field', __DIR__ . '/../resources/dist/components/z2pay-money-field.js'),
-           // Css::make('z2pay-money-field-styles', __DIR__.'/../resources/dist/z2pay-money-field.css'),
-           // Js::make('z2pay-money-field-scripts', __DIR__.'/../resources/dist/z2pay-money-field.js'),
+            // Css::make('z2pay-money-field-styles', __DIR__.'/../resources/dist/z2pay-money-field.css'),
+            // Js::make('z2pay-money-field-scripts', __DIR__.'/../resources/dist/z2pay-money-field.js'),
         ];
     }
 
